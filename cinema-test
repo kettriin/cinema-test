@@ -1,0 +1,16 @@
+from typing import Dict, List, Optional, Iterator
+
+class Movie:
+    def __init__(self, title: str, year: int, genre: str,):
+        self.title = title
+        self.year = year
+        self.genre = genre
+
+    def __repr__(self) -> str:
+        return (
+            f"Название: '{self.title}', год: {self.year}, жанр: '{self.genre}'")
+
+
+
+
+

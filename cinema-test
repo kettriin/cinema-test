@@ -12,5 +12,15 @@ class Movie:
 
 
 
+class Collection:
+    def __init__(self):
+        self._movies: Dict[str, Movie] = {}
 
+    def add(self, movie: Movie):
+        # Добавляет фильм 
+        self._movies[movie.title] = movie
 
+    def remove(self, title: str):
+        # Удаляет фильм по названию
+        if title in self._movies:
+            del self._movies[title]

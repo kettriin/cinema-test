@@ -33,11 +33,11 @@ class Collection:
         # Фильтр по году выпуска
         return [movie for movie in self._movies.values() if movie.year == year]
 
-    def find_by_title(self, title: str) -> Optional[Movie]:
+    def find_by_title(self, title: str):
         # Фильтр по названию
         return self._movies.get(title)
 
-    def __iter__(self) -> Iterator[Movie]:
+    def __iter__(self):
         # Итератор
         return iter(self._movies.values())
     
@@ -63,10 +63,14 @@ if __name__ == "__main__":
     print("\nФильмы жанра Sci-Fi:")
     for movie in sci_fi_movies:
         print(movie)
+
+    foo_movie = collection.find_by_title("Индийский снимок")
+    print("\nРезультат поиска по названию:")
+    print(foo_movie)
         
     # Удалим фильм по названию и выведем список после удаления
-    collection.remove("Pulp Fiction")
+    collection.remove("Индийский снимок")
     
-    print("\nПосле удаления 'Pulp Fiction':")
+    print("\nПосле удаления 'Индийский снимок':")
     for movie in collection:
         print(movie)

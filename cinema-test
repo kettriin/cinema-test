@@ -24,3 +24,20 @@ class Collection:
         # Удаляет фильм по названию
         if title in self._movies:
             del self._movies[title]
+
+    def find_by_genre(self, genre: str) -> List[Movie]:
+        # Фильтр по жанру
+        return [movie for movie in self._movies.values() if movie.genre == genre]
+    
+    def find_by_year(self, year: int) -> List[Movie]:
+        # Фильтр по году выпуска
+        return [movie for movie in self._movies.values() if movie.year == year]
+
+    def find_by_title(self, title: str) -> Optional[Movie]:
+        # Фильтр по названию
+        return self._movies.get(title)
+
+    def __iter__(self) -> Iterator[Movie]:
+        # Итератор
+        return iter(self._movies.values())
+    

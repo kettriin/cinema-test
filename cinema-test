@@ -41,3 +41,32 @@ class Collection:
         # Итератор
         return iter(self._movies.values())
     
+
+    
+# Тестирование
+if __name__ == "__main__":
+    collection = Collection()
+
+    # Добавляем фильмы
+    collection.add(Movie("Дракон и дождь", 2010, "Sci-Fi"))
+    collection.add(Movie("Москва слезам не верит", 2004, "Action"))
+    collection.add(Movie("Тёмное королевство", 2008, "Sci-Fi"))
+    collection.add(Movie("Индийский снимок", 1994, "Crime"))
+    
+    # Выведем весь список добавленных фильмов
+    print("Все фильмы в коллекции:")
+    for movie in collection:
+        print(movie)
+                
+    # Отфильтруем по жанру
+    sci_fi_movies = collection.find_by_genre("Sci-Fi")
+    print("\nФильмы жанра Sci-Fi:")
+    for movie in sci_fi_movies:
+        print(movie)
+        
+    # Удалим фильм по названию и выведем список после удаления
+    collection.remove("Pulp Fiction")
+    
+    print("\nПосле удаления 'Pulp Fiction':")
+    for movie in collection:
+        print(movie)
